@@ -1,4 +1,3 @@
-HTML: 
-Create a column with a search bar with a search button and a header for that area. 
-Make a container that will house one header and 4 rows for Temperature, Humidity, Wind Speed and UV Indices. 
-Below that, create another container with a 5 day forecast contained in 5 image boxes. 
+For this project, I am going to create a weather dashboard. From this application, the user will be able to gather data from any city through Open Weather's API. Once a city is input in the text box and searched via click, the application will retrieve the current temperature, humidity, wind speed and UV index of that city as well as the 5 day forecast. 
+
+To begin this application, I will create markup via HTML. This will include a header with a "Weather Dashboard" title. I will also create a container that will house a card for the search area, and it will also contain a list of previously searched cities and commit those to local storage for future viewing that the user may access through clicks. Within this container, there will also a card for viewing the current weather for the chosen city, and lastly, there will be another card for the 5-day forecast. 

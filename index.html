@@ -15,6 +15,7 @@
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel='stylesheet' href="style.css">
 
 </head>
@@ -22,27 +23,30 @@
     <div class="header">
         <h1>Weather Dashboard</h1>
     </div>
+    <div class="container" id="main-holder">
+        <card class="city-list" id="city-holder">
+            <h3>Search for a City:</h3>
+                <col-6>
+                        <textarea id="city-entry" placeholder="Enter a city..."></textarea>
+                        <button id= "search-btn" class=" btn btn-primary" type="search"></button>
+                </col-6>
+            </card>
 
-    <div class="city-container" id="city-holder">
-        <h3>Search for a City:</h3>
-    </div>
-
-    <div class="current-container" id="current-holder">
-        <h1 id="current-selection"></h1>
-            <p>Temperature: </p>
-            <p>Humidity: </p>
-            <p>Wind Speed: </p>
-            <p>UV Index: </p>
-    </div>
-
-    <div class="5day-container" id="5day-holder">
-        <h2>5-Day Forecast:</h2>
-        <textarea>Block1</textarea>
-        <textarea>Block2</textarea>
-        <textarea>Block3</textarea>
-        <textarea>Block4</textarea>
-        <textarea>Block5</textarea>
-
+        <card class="weather" id="weather-holder">
+            <col-6>
+                <card id="current-weather">
+                    <h1 id="current-selection"></h1>
+                        <p>Temperature: </p>
+                        <p>Humidity: </p>
+                        <p>Wind Speed: </p>
+                        <p>UV Index: </p>
+                </card>
+                <card id="week-forecast">
+                    <h2>5-Day Forecast:</h2>
+                    <row id="daily-weather"></row>
+                </card>
+            </col-6>
+        </card>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

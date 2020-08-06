@@ -1,0 +1,17 @@
+.header {
+  background-color: navy;
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.weather {
+    float: right;
+    font-family: 'Roboto Condensed', sans-serif;
+    display: block;
+}
+
+.city-list {
+    font-family: 'Roboto Condensed', sans-serif;
+}
