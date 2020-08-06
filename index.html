@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Weather Dashboard</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel='stylesheet' href="style.css">
+
+</head>
+<body>
+    <div class="header">
+        <h1>Weather Dashboard</h1>
+    </div>
+
+    <div class="city-container" id="city-holder">
+        <h3>Search for a City:</h3>
+    </div>
+
+    <div class="current-container" id="current-holder">
+        <h1 id="current-selection"></h1>
+            <p>Temperature: </p>
+            <p>Humidity: </p>
+            <p>Wind Speed: </p>
+            <p>UV Index: </p>
+    </div>
+
+    <div class="5day-container" id="5day-holder">
+        <h2>5-Day Forecast:</h2>
+        <textarea>Block1</textarea>
+        <textarea>Block2</textarea>
+        <textarea>Block3</textarea>
+        <textarea>Block4</textarea>
+        <textarea>Block5</textarea>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src='script.js'></script>
+</body>
+</html>
