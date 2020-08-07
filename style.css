@@ -1,4 +1,4 @@
-.header {
+header {
   background-color: navy;
   color: white;
   width: 100%;
@@ -14,4 +14,9 @@
 
 .city-list {
     font-family: 'Roboto Condensed', sans-serif;
+}
+
+.button {
+  margin-left: 20px;
+  font-family: 'Roboto Condensed', sans-serif;
 }
