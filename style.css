@@ -16,7 +16,18 @@ header {
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-.button {
-  margin-left: 20px;
+#cities-view {
+  width: 50%;
+  padding: 5px;
+  margin-left: 15px;
+  margin-bottom: 5px;
   font-family: 'Roboto Condensed', sans-serif;
+}
+
+#weather-holder {
+  margin-right: 50px;
+}
+
+#city-entry, h3 {
+  margin-left: 15px;
 }

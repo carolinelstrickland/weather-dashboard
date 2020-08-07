@@ -1,4 +1,21 @@
-var cities = [];
+let cities = [];
+
+function displayWeatherInfo() {
+    let APIKey = "166a433c57516f51dfab1f7edaed8413";
+    let city = $(this).attr("data-name");
+    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city
+    + "&appid=" + APIKey;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        console.log(queryURL)
+        console.log(response)
+    });
+
+}
+
 
 function displayCity() {
     $("#cities-view").empty();
@@ -20,4 +37,6 @@ $("#city-input").on("click", function(event) {
     
     displayCity();
 });
+
+$(document).on("click", ".city", displayWeatherInfo);
 
