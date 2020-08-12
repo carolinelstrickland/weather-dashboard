@@ -2,9 +2,7 @@ let cities = [];
 
 function displayWeatherInfo(city) {
     let APIKey = "166a433c57516f51dfab1f7edaed8413";
-    // let city = $(this).attr("data-name");
-    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city
-    + "&appid=" + APIKey;
+    let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`
 
     $.ajax({
         url: queryURL,
@@ -19,7 +17,7 @@ function displayWeatherInfo(city) {
         let pTwo = $("<p>").text("Humidity: " + response.main.humidity);
         currentWeather.append(pTwo);
         let pThree = $("<p>").text("Wind Speed: " + response.wind.speed);
-        currentWeather.append(pThree);
+        currentWeather.append(pThree);  
     });
 }
 
@@ -30,7 +28,6 @@ function displayCity() {
         let a = $("<button>");
         a.addClass("city-btn");
         a.addClass("row");
-        a.attr("data-name", cities[i]);
         a.text(cities[i]);
         $("#cities-view").append(a);
     }
@@ -43,13 +40,10 @@ $("#city-input").on("click", function(event) {
     displayCity();
     displayWeatherInfo(city);
     fiveDayForecast(city);
-
 });
-
 
 function fiveDayForecast(city){
     let APIKey = "166a433c57516f51dfab1f7edaed8413";
-    // let city = $(this).attr("data-name");
     let queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}`;
 
     $.ajax({
@@ -66,11 +60,14 @@ function fiveDayForecast(city){
 
 }
 
+$(document).on("click", ".city-btn", function(event){
+    event.preventDefault();
+    let city = $(this).attr("id");
+    localStorage.setItem("lastCity", city);
+    displayWeatherInfo(city);
+});
 
 
-$(document).on("click", ".city-btn", displayWeatherInfo);
-
-// displayCity();
 
 //http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}
 //api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
