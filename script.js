@@ -8,6 +8,7 @@ function displayWeatherInfo(city) {
         url: queryURL,
         method: "GET"
     }).then(function(response) {
+        console.log(response);
         let currentName = $("#current-selection").text(response.name);
         let currentWeather = $("#current-weather")
         currentWeather.html("");
@@ -18,9 +19,19 @@ function displayWeatherInfo(city) {
         currentWeather.append(pTwo);
         let pThree = $("<p>").text("Wind Speed: " + response.wind.speed);
         currentWeather.append(pThree);  
+        let longitude = response.coord.lon;
+        let latitude = response.coord.lat;
+        let queryURL2 = `http://api.openweathermap.org/data/2.5/uvi?appid=${APIKey}&lat=${lat}&lon=${lon}`
+        $.ajax({
+            url: queryURL2,
+            method: "GET"
+        }).then(function(response) {
+            console.log(response);
+            //let UVI = 
+        });
+
     });
 }
-
 
 function displayCity() {
     $("#cities-view").empty();
@@ -53,6 +64,8 @@ function fiveDayForecast(city){
         console.log(response)
         for (let i=0; i < response.list.length; i++) {
             if (response.list[i].dt_txt.includes("21:00:00")){
+                $("#week-forecast").text(response.name);
+
                 console.log(response.list[i]);
             }
         }
