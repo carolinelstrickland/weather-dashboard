@@ -1,4 +1,5 @@
 let cities = [];
+let city;
 
 function displayWeatherInfo(city) {
     let APIKey = "166a433c57516f51dfab1f7edaed8413";
@@ -19,15 +20,16 @@ function displayWeatherInfo(city) {
         currentWeather.append(pTwo);
         let pThree = $("<p>").text("Wind Speed: " + response.wind.speed);
         currentWeather.append(pThree);  
-        let longitude = response.coord.lon;
-        let latitude = response.coord.lat;
+        let lon = response.coord.lon;
+        let lat = response.coord.lat;
         let queryURL2 = `http://api.openweathermap.org/data/2.5/uvi?appid=${APIKey}&lat=${lat}&lon=${lon}`
         $.ajax({
             url: queryURL2,
             method: "GET"
         }).then(function(response) {
             console.log(response);
-            //let UVI = 
+            let UVI = $("<p>").text("UV Index: " + response.value)
+            currentWeather.append(UVI);
         });
 
     });
@@ -39,6 +41,8 @@ function displayCity() {
         let a = $("<button>");
         a.addClass("city-btn");
         a.addClass("row");
+        a.attr("id", cities[i]);
+        console.log(city);
         a.text(cities[i]);
         $("#cities-view").append(a);
     }
@@ -46,7 +50,7 @@ function displayCity() {
 
 $("#city-input").on("click", function(event) {
     event.preventDefault();
-    let city = $("#city-entry").val();
+    city = $("#city-entry").val();
     cities.push(city); 
     displayCity();
     displayWeatherInfo(city);
@@ -75,8 +79,8 @@ function fiveDayForecast(city){
 
 $(document).on("click", ".city-btn", function(event){
     event.preventDefault();
-    let city = $(this).attr("id");
-    localStorage.setItem("lastCity", city);
+    city = $(this).attr("id");
+    console.log(city);
     displayWeatherInfo(city);
 });
 
