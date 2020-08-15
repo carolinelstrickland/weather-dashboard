@@ -23,29 +23,34 @@
     <header>
         <h1>Weather Dashboard</h1>
     </header>
-        
-    <card class="city-list" id="city-holder">
-            <h3>Search for a City:</h3>
-                <col-6>
+
+    <div class = "container">   
+        <div class="row" id="city-holder">
+            <div class = "col-4">
+                <h3>Search for a City:</h3>
+                    <form>
                         <input type="text" id="city-entry" placeholder="Enter a city..."></textarea>
                         <input type= "submit" id="city-input" value="Select"></input>
-                </col-6>
-        </card> 
-        <div id="cities-view"></div>
+                    </form>
+
+            <div id="cities-view" class = "mb-2"></div>
+        </div>
+
             <!-- Current weather list will go here -->
-        <card class="weather" id="weather-holder">
+        <div class="col-8" id="weather-holder">
             <h2 id="current-selection"></h1>
-            <col-6>
-                <card id="current-weather">
-                </card>
-            </col-6>
-            <br></br>
-                <!-- The 5-day forecast will be held here -->
-            <col-6>
-                <h2>5-Day Forecast:</h2>
-                <div id="week-forecast"></div>
-            </col-6>
-        </card>
+            <div>
+                <card id="current-weather"></card>
+            </div>
+        </div>
+            <!-- The 5-day forecast will be held here -->
+            <div class = "row">
+                <div class = "col">
+                    <h2>5-Day Forecast:</h2>
+                </div>
+            </div>
+        <div class = "row" id = "week-forecast"></div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src='script.js'></script>

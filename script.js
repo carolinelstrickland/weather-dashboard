@@ -55,6 +55,7 @@ $("#city-input").on("click", function(event) {
     displayCity();
     displayWeatherInfo(city);
     fiveDayForecast(city);
+    $("#city-entry").val("");
 });
 
 function fiveDayForecast(city){
@@ -65,21 +66,25 @@ function fiveDayForecast(city){
         url: queryURL,
         method: "GET"
     }).then(function(response) {
+        $("#week-forecast").empty();
         console.log(response)
         for (let i=0; i < response.list.length; i++) {
                     if (response.list[i].dt_txt.includes("21:00:00")){
                         console.log(response.list[i]);
-                    let dataCol = $("#week-forecast");
+                    let dataCol = $("<div>");
                     dataCol.addClass("col-md-2 bg-light mx-2 rounded text-dark p-3 text-center border"); 
                     let icon = `<img src="http://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">`;
                     let date = response.list[i].dt_txt; 
                     dataCol.html(`<h6>${moment(date).format("ddd, MMM Do")}</h6>
-                                        <div class="m-0">${icon}</div>
+                                         <div class="m-0">${icon}</div>
                                         <ul class="list-unstyled m-0">
                                         <li>Temp: <b>${response.list[i].main.temp} °F</b></li>
-                              <li>Humidity:<b> ${response.list[i].main.humidity} %</b></li>
-                                        </ul>
-                            `)};
+                                        <li>Humidity:<b> ${response.list[i].main.humidity} %</b></li>
+                                        </ul>`
+                                        );
+                                            $("#week-forecast").append(dataCol);
+                    }
+                            
         }
     });
 
