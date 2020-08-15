@@ -67,11 +67,19 @@ function fiveDayForecast(city){
     }).then(function(response) {
         console.log(response)
         for (let i=0; i < response.list.length; i++) {
-            if (response.list[i].dt_txt.includes("21:00:00")){
-                $("#week-forecast").text(response.name);
-
-                console.log(response.list[i]);
-            }
+                    if (response.list[i].dt_txt.includes("21:00:00")){
+                        console.log(response.list[i]);
+                    let dataCol = $("#week-forecast");
+                    dataCol.addClass("col-md-2 bg-light mx-2 rounded text-dark p-3 text-center border"); 
+                    let icon = `<img src="http://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">`;
+                    let date = response.list[i].dt_txt; 
+                    dataCol.html(`<h6>${moment(date).format("ddd, MMM Do")}</h6>
+                                        <div class="m-0">${icon}</div>
+                                        <ul class="list-unstyled m-0">
+                                        <li>Temp: <b>${response.list[i].main.temp} °F</b></li>
+                              <li>Humidity:<b> ${response.list[i].main.humidity} %</b></li>
+                                        </ul>
+                            `)};
         }
     });
 
